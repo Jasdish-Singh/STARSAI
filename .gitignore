@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+*.egg
+
+# Data (large files)
+data/raw/
+data/processed/
+data/bronze/osm/
+*.csv
+*.geojson
+*.parquet
+*.pbf
+*.graphml
+*.shp
+*.dbf
+*.shx
+*.prj
+
+# Environment
+.env
+.env.local
+*.env
+
+# Node
+node_modules/
+frontend/dist/
+frontend/build/
+.next/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
+
+# Model artifacts (large)
+model/artifacts/
+*.pkl
+*.joblib
+*.h5
+.gstack/
+
+# Agent runtime
+.claude/
+.claude-flow/
+.swarm/
+pipeline/.claude-flow/
+pipeline/.swarm/
+cache/
+.playwright-mcp/
+CLAUDE.md
