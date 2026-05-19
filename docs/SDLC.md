@@ -5,8 +5,42 @@
 **Team:** STARS AI (Jasdish Singh, Centennial College + Tiana Gaurd, UofT)
 **Competition:** Transit Data Challenge 2026
 **Submission Window:** May 15–30, 2026
-**Document version:** 1.0 — 2026-05-14
+**Document version:** 1.1 — 2026-05-19 (shipped-scope banner added)
 **Repository:** https://github.com/Jasdish-Singh/STARSAI
+
+---
+
+## SHIPPED-SCOPE BANNER (read first)
+
+This document is the original planning spec. The **shipped MVP for May 30
+submission differs** from the broader vision below. Authoritative shipped
+scope lives in the root `README.md`.
+
+**Shipped (P0 in submission):**
+- 8 factors (not 10): lighting, crime, eyes_on_street, isolation,
+  wait_exposure (isolation proxy), sightline, disorder_311, lit_way_supplement
+- 4 day-types (weekday/fri/sat/sun), 16 night hours = 64 time bins (not 72)
+- 9,378 stops scored (TTC surface + subway)
+- Calibrated logistic regression weights, AUROC 0.6806 (below 0.70 target;
+  treated as nudge to theory weights, not a primary classifier)
+- FR-019 per-stop provenance JSON
+- FR-031 static `scores.json` API (no live backend required)
+- FR-034 reproducible build (`make all` / `py build.py all`)
+- StatCan equity layer (4 columns per stop)
+
+**Deferred / out of scope for May 30:**
+- GTFS-RT (real-time)
+- LLM narration / voice interface (FR-029 style)
+- Policy simulator (FR-025) — sliders + live re-score
+- AGCO alcohol-outlet factor
+- Mapillary streetscape vision factor
+- Crossing danger (KSI) factor
+- 12-factor radar chart
+- Live FastAPI backend deployment (scripts exist; submission uses static CDN)
+
+Original spec preserved below for reference; treat metric targets, factor
+counts, and architecture diagrams as **planned**, not **shipped**, unless
+the section is explicitly marked otherwise.
 
 ---
 

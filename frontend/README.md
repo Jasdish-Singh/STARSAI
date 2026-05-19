@@ -1,8 +1,12 @@
-# Frontend
+# Frontend (scaffold, in progress)
 
-React + deck.gl + MapLibre GL — deployed on Vercel
+**Status:** package.json present, `src/` not yet implemented.
 
-## Setup
+React + Vite + deck.gl + MapLibre GL planned. Will read static
+`/data/scores.json` (FR-031) and `/data/provenance.json` (FR-019)
+from the public CDN — no backend required.
+
+## Planned setup (once `src/` lands)
 
 ```bash
 cd frontend
@@ -10,29 +14,28 @@ npm install
 npm run dev
 ```
 
-## Key files (to build)
+## Planned components (MVP for submission)
 
 ```
 frontend/
 ├── src/
 │   ├── App.jsx              # root
 │   ├── components/
-│   │   ├── SafetyMap.jsx    # deck.gl H3 hex layer + stop markers
-│   │   ├── TimeSlider.jsx   # 18:00 → 04:00 scrubber
-│   │   ├── FactorRadar.jsx  # 12-factor radar chart on stop click
-│   │   ├── EquityPanel.jsx  # score by income decile bar chart
-│   │   ├── PolicySim.jsx    # intervention simulator
-│   │   └── StopCard.jsx     # stop info sidebar
+│   │   ├── SafetyMap.jsx    # deck.gl ScatterplotLayer on stops_scores.geojson
+│   │   ├── TimeSlider.jsx   # 17:00 → 08:00 scrubber, weekday/fri/sat/sun
+│   │   ├── StopCard.jsx     # stop detail panel: factors + provenance link
+│   │   └── EquityToggle.jsx # color stops by score vs median-income residual
 │   ├── store/
-│   │   └── useStore.js      # zustand — selectedStop, timebin, daytype
-│   └── data/
-│       └── index.geojson    # pre-computed scores (copied from pipeline output)
+│   │   └── useStore.js      # zustand: selectedStop, hour, dayType, equityOn
+│   └── data/                # fetched from /data/scores.json at runtime
 └── public/
     └── style.css
 ```
 
-## Map layers (deck.gl)
+## Map layers
 
-1. `H3HexagonLayer` — hex grid colored by T-NTSI score (green→red)
-2. `ScatterplotLayer` — stop markers sized by ridership
-3. `IconLayer` — flag high-risk stops (score < 30)
+1. `ScatterplotLayer` — stops colored by composite score (green→red)
+2. Optional `H3HexagonLayer` for aggregated view
+
+Heavier visualization (radar charts, policy simulator) is out of scope for
+the May 30 submission. See root README "Out of scope" section.
