@@ -1,25 +1,37 @@
-# Data pipeline dependencies
+# STARSAI pipeline dependencies (production reproduce path)
+# Trimmed: librosa/xgboost/ultralytics/mediapipe/opencv (unused stretch deps)
+
+# Core data
 duckdb>=0.10.0
-geopandas>=0.14.0
-h3>=3.7.7
-pyrosm>=0.6.2
 pandas>=2.0.0
 numpy>=1.26.0
+pyarrow>=14.0.0
+
+# Geospatial
+geopandas>=0.14.0
 shapely>=2.0.0
-xgboost>=2.0.0
+h3>=3.7.7
+pyrosm>=0.6.2
+osmium>=3.6.0
+pgeocode>=0.5.0
+
+# ML
 scikit-learn>=1.4.0
+scipy>=1.12.0
+
+# Ingest
 requests>=2.31.0
 python-dotenv>=1.0.0
 tqdm>=4.66.0
-librosa>=0.10.0
 
-# Validation / analysis
-scipy>=1.12.0
+# Routing (optional but in tree)
+osmnx>=1.8.0
+networkx>=3.2.0
+
+# Static API server (optional, route_api.py only)
+fastapi>=0.110.0
+uvicorn>=0.27.0
+pydantic>=2.0.0
+
+# EDA / plots
 matplotlib>=3.8.0
-seaborn>=0.13.0
-jupyter>=1.0.0
-
-# CV / camera module (stretch)
-ultralytics>=8.0.0
-mediapipe>=0.10.0
-opencv-python>=4.9.0
