@@ -76,6 +76,17 @@ TORONTO_RESOURCES = {
 OSM_PBF_URL = "https://download.geofabrik.de/north-america/canada/ontario-latest.osm.pbf"
 OSM_PBF_FILENAME = "ontario-latest.osm.pbf"
 
+# StatCan 2021 Census — Profile of Census Tracts (catalogue 98-401-X2021006)
+STATCAN_PROFILE_URL = "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=007"
+STATCAN_PROFILE_FILENAME = "98-401-X2021006_CT_profile.zip"
+
+# StatCan 2021 Census Tract cartographic boundary file (shapefile, EN)
+STATCAN_CT_BOUNDARY_URL = "https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/files-fichiers/lct_000b21a_e.zip"
+STATCAN_CT_BOUNDARY_FILENAME = "lct_000b21a_e.zip"
+
+# Toronto CMA code (2021 Census)
+TORONTO_CMA_CODE = "535"
+
 # Toronto bounding box for OSM clip: minLon, minLat, maxLon, maxLat
 TORONTO_BBOX = (-79.6394, 43.5781, -79.1163, 43.8554)
 
