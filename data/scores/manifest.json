@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-05-17T22:12:21+00:00",
+  "file": "scores.parquet",
+  "rows": 9378,
+  "bytes": 515377,
+  "weights": {
+    "lighting": 0.1524,
+    "crime": 0.1526,
+    "eyes_on_street": 0.1372,
+    "isolation": 0.1186,
+    "wait_exposure": 0.1266,
+    "sightline": 0.097,
+    "disorder_311": 0.1183,
+    "lit_way_supplement": 0.0972
+  },
+  "composite_stats": {
+    "mean": 54.2701669240521,
+    "min": 27.075187958961216,
+    "max": 77.97333159679779
+  },
+  "factors_available": [
+    "lighting",
+    "crime",
+    "eyes_on_street",
+    "isolation",
+    "wait_exposure",
+    "sightline",
+    "disorder_311",
+    "lit_way_supplement"
+  ],
+  "factors_missing": [
+    "alcohol_outlets",
+    "streetscape_vision",
+    "crossing_danger"
+  ]
+}

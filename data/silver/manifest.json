@@ -1,0 +1,17 @@
+{
+  "files": {
+    "osm_buildings.parquet": {
+      "bytes": 11106268,
+      "rows": 529146
+    },
+    "osm_lit_ways.parquet": {
+      "bytes": 1075645,
+      "rows": 35335
+    },
+    "osm_pois.parquet": {
+      "bytes": 2370845,
+      "rows": 68309
+    }
+  },
+  "generated_at": "2026-05-17T21:02:50+00:00"
+}

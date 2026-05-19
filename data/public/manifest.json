@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-05-17T22:12:51+00:00",
+  "files": {
+    "stops_scores.geojson": {
+      "rows": 9378,
+      "bytes": 4035645
+    },
+    "stops_scores.csv": {
+      "rows": 9378,
+      "bytes": 1177289
+    }
+  }
+}

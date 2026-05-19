@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-05-17T18:29:00+00:00",
+  "pull_date": "2026-05-17",
+  "rows": {
+    "bronze/crime_night": 37367,
+    "bronze/lighting_poles": 221090,
+    "bronze/osm_bytes": 325933149,
+    "bronze/service311": 32123,
+    "bronze/stop_times": 4261259,
+    "bronze/stops": 9378,
+    "gtfs/ttc/stop_times": 4261259,
+    "gtfs/ttc/stops": 9378
+  }
+}
