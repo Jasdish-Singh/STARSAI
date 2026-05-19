@@ -1,0 +1,25 @@
+# Data pipeline dependencies
+duckdb>=0.10.0
+geopandas>=0.14.0
+h3>=3.7.7
+pyrosm>=0.6.2
+pandas>=2.0.0
+numpy>=1.26.0
+shapely>=2.0.0
+xgboost>=2.0.0
+scikit-learn>=1.4.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+librosa>=0.10.0
+
+# Validation / analysis
+scipy>=1.12.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+jupyter>=1.0.0
+
+# CV / camera module (stretch)
+ultralytics>=8.0.0
+mediapipe>=0.10.0
+opencv-python>=4.9.0
