@@ -51,17 +51,15 @@ LEFT JOIN poles p ON
 GROUP BY s.uid;
 
 -- Crime: count night incidents within 500m per stop
-CREATE OR REPLACE TABLE crime AS SELECT lat, lon, mci_category, day_type, occ_hour
+-- Day-of-week splits live in labels.parquet (ml_labels.py); not duplicated here.
+CREATE OR REPLACE TABLE crime AS SELECT lat, lon, mci_category, occ_hour
 FROM read_parquet('{silver}/crime.parquet');
 
 CREATE OR REPLACE TABLE stop_crime AS
 SELECT s.uid,
        COUNT(c.lat) AS crime_count_500m,
        COUNT(c.lat) FILTER (c.mci_category = 'Assault') AS crime_assault_500m,
-       COUNT(c.lat) FILTER (c.mci_category = 'Robbery') AS crime_robbery_500m,
-       COUNT(c.lat) FILTER (c.day_type = 'weekday') AS crime_weekday_500m,
-       COUNT(c.lat) FILTER (c.day_type = 'fri_sat') AS crime_fri_sat_500m,
-       COUNT(c.lat) FILTER (c.day_type = 'sun') AS crime_sun_500m
+       COUNT(c.lat) FILTER (c.mci_category = 'Robbery') AS crime_robbery_500m
 FROM stops s
 LEFT JOIN crime c ON
     c.lat BETWEEN s.stop_lat - 0.007 AND s.stop_lat + 0.007
@@ -100,9 +98,6 @@ SELECT
     COALESCE(sc.crime_count_500m, 0) AS crime_count_500m,
     COALESCE(sc.crime_assault_500m, 0) AS crime_assault_500m,
     COALESCE(sc.crime_robbery_500m, 0) AS crime_robbery_500m,
-    COALESCE(sc.crime_weekday_500m, 0) AS crime_weekday_500m,
-    COALESCE(sc.crime_fri_sat_500m, 0) AS crime_fri_sat_500m,
-    COALESCE(sc.crime_sun_500m, 0) AS crime_sun_500m,
     COALESCE(sd.disorder_count_200m, 0) AS disorder_count_200m,
     COALESCE(sd.disorder_noise_200m, 0) AS disorder_noise_200m,
     COALESCE(sd.disorder_graffiti_200m, 0) AS disorder_graffiti_200m,

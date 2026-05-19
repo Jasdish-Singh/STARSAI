@@ -12,6 +12,10 @@ build/
 data/raw/
 data/processed/
 data/bronze/osm/
+data/bronze/statcan/
+
+# Codex session state
+.context/
 *.csv
 *.geojson
 *.parquet
