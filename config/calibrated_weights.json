@@ -1,0 +1,49 @@
+{
+  "model_version": "v0.3.1",
+  "method": "logistic_regression",
+  "blend": "0.4_theory + 0.4_data + 0.2_uniform",
+  "auroc": 0.6806,
+  "n_train": 486208,
+  "n_test": 113984,
+  "positive_rate": 0.2618595382810834,
+  "factor_coefficients_raw": {
+    "lighting": 0.0462,
+    "crime": -0.6507,
+    "eyes_on_street": -0.0149,
+    "isolation": 0.0127,
+    "wait_exposure": 0.0127,
+    "sightline": -0.0181,
+    "disorder_311": 0.0064,
+    "lit_way_supplement": -0.0136
+  },
+  "weights_theory": {
+    "lighting": 0.18,
+    "crime": 0.25,
+    "eyes_on_street": 0.15,
+    "isolation": 0.1,
+    "wait_exposure": 0.12,
+    "sightline": 0.05,
+    "disorder_311": 0.1,
+    "lit_way_supplement": 0.05
+  },
+  "weights_data": {
+    "lighting": 0.1386,
+    "crime": 0.0691,
+    "eyes_on_street": 0.1304,
+    "isolation": 0.1341,
+    "wait_exposure": 0.1341,
+    "sightline": 0.13,
+    "disorder_311": 0.1332,
+    "lit_way_supplement": 0.1306
+  },
+  "weights_blended": {
+    "lighting": 0.1524,
+    "crime": 0.1526,
+    "eyes_on_street": 0.1372,
+    "isolation": 0.1186,
+    "wait_exposure": 0.1266,
+    "sightline": 0.097,
+    "disorder_311": 0.1183,
+    "lit_way_supplement": 0.0972
+  }
+}
