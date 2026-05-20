@@ -1,0 +1,14 @@
+{
+  "name": "STARSAI — TTC Nighttime Safety",
+  "short_name": "STARSAI",
+  "description": "Women’s nighttime safety index for Toronto TTC stops",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a0a1a",
+  "background_color": "#0a0a1a",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
