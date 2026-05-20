@@ -1,0 +1,10 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
