@@ -70,3 +70,6 @@ pipeline/.swarm/
 cache/
 .playwright-mcp/
 CLAUDE.md
+# Frontend runtime data (copied from data/public/ during build)
+frontend/public/data/
+frontend/public/screenshot.png
