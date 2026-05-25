@@ -73,3 +73,10 @@ CLAUDE.md
 # Frontend runtime data (copied from data/public/ during build)
 frontend/public/data/
 frontend/public/screenshot.png
+frontend/public/scores.json
+frontend/public/provenance.json
+frontend/tsconfig.tsbuildinfo
+
+# Allow baked demo routes (override *.geojson global)
+!frontend/public/routes/
+!frontend/public/routes/*.geojson

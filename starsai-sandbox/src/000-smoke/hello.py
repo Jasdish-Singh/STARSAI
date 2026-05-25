@@ -1,0 +1,1 @@
+print("STARSAI sandbox alive")

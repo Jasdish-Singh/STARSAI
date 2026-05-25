@@ -1,29 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { KeyboardEvent, PointerEvent } from 'react';
+import type { PointerEvent } from 'react';
 import { useStore } from '../store/useStore';
 import type { StopFactors } from '../types';
-
-const RAW_LABELS: Record<string, string> = {
-  lights_50m: 'Streetlights',
-  poles_total_50m: 'Total poles',
-  lit_yes_100m: 'Lit-tagged ways',
-  crime_count_500m: 'All crime',
-  crime_assault_500m: 'Assaults',
-  crime_robbery_500m: 'Robberies',
-  disorder_count_200m: '311 disorder calls',
-  pois_150m: 'POIs',
-  food_drink_150m: 'Food / drink',
-  buildings_50m: 'Buildings',
-  building_nodes_50m: 'Building corners'
-};
-
-const RAW_GROUPS: Array<{ title: string; keys: string[] }> = [
-  { title: 'Lighting', keys: ['lights_50m', 'poles_total_50m', 'lit_yes_100m'] },
-  { title: 'Crime (500m)', keys: ['crime_count_500m', 'crime_assault_500m', 'crime_robbery_500m'] },
-  { title: 'Disorder (200m)', keys: ['disorder_count_200m'] },
-  { title: 'Activity (150m)', keys: ['pois_150m', 'food_drink_150m'] },
-  { title: 'Buildings (50m)', keys: ['buildings_50m', 'building_nodes_50m'] }
-];
 
 const FACTOR_LABELS: Record<keyof StopFactors, string> = {
   lighting: 'Lighting',
@@ -56,6 +34,21 @@ function loadProvenance() {
   return provenancePromise;
 }
 
+function renderProvenance(value: any) {
+  if (!value) return <p className="muted">no provenance available</p>;
+  if (typeof value !== 'object') return <p>{String(value)}</p>;
+  return (
+    <dl className="provenance-list">
+      {Object.entries(value).map(([key, item]) => (
+        <div key={key}>
+          <dt>{key.replaceAll('_', ' ')}</dt>
+          <dd>{typeof item === 'object' ? JSON.stringify(item) : String(item)}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export function StopPanel() {
   const stops = useStore((state) => state.stops);
   const selectedUid = useStore((state) => state.selectedUid);
@@ -68,7 +61,6 @@ export function StopPanel() {
 
   const stop = useMemo(() => stops?.find((item) => item.uid === selectedUid) ?? null, [selectedUid, stops]);
   const provenanceEntry = selectedUid ? provenance[selectedUid] : null;
-  const raw = provenanceEntry?.raw;
   const total = stops?.length ?? 0;
 
   useEffect(() => {
@@ -77,8 +69,7 @@ export function StopPanel() {
     setLoading(true);
     loadProvenance().then((data) => {
       if (cancelled) return;
-      const bucket = (data && typeof data === 'object' && 'stops' in data) ? (data as any).stops : data;
-      setProvenanceEntry(selectedUid, bucket?.[selectedUid] ?? null);
+      setProvenanceEntry(selectedUid, data[selectedUid] ?? null);
       setLoading(false);
     });
     return () => {
@@ -86,22 +77,11 @@ export function StopPanel() {
     };
   }, [provenance, selectedUid, setProvenanceEntry]);
 
-  useEffect(() => {
-    if (!selectedUid) return;
-    const onKey = (e: globalThis.KeyboardEvent) => { if (e.key === 'Escape') { setDragY(0); setSelectedUid(null); } };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [selectedUid, setSelectedUid]);
-
   if (!selectedUid || !stop) return null;
 
   const close = () => {
     setDragY(0);
     setSelectedUid(null);
-  };
-
-  const onHandleKey = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); close(); }
   };
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
@@ -132,7 +112,7 @@ export function StopPanel() {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div className="drag-handle" role="button" tabIndex={0} aria-label="Close stop details (Enter or Esc)" onKeyDown={onHandleKey} />
+        <div className="drag-handle" />
         <header className="stop-header">
           <div>
             <h1>{stop.name}</h1>
@@ -153,25 +133,7 @@ export function StopPanel() {
         </div>
         <section className="provenance">
           <h2>Provenance</h2>
-          {loading ? (
-            <p className="muted">Loading provenance...</p>
-          ) : raw && typeof raw === 'object' ? (
-            RAW_GROUPS.map((group) => (
-              <section className="prov-group" key={group.title}>
-                <h3>{group.title}</h3>
-                <dl className="provenance-list">
-                  {group.keys.map((k) => (
-                    <div key={k}>
-                      <dt>{RAW_LABELS[k]}</dt>
-                      <dd>{raw[k] ?? '—'}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </section>
-            ))
-          ) : (
-            <p className="muted">no provenance available</p>
-          )}
+          {loading ? <p className="muted">Loading provenance...</p> : renderProvenance(provenanceEntry)}
         </section>
       </section>
     </div>

@@ -26,7 +26,7 @@ DEMO_PAIRS = [
     ("union-to-bloor",     "Union Station",              "Bloor Station"),
     ("spadina-to-queen",   "Spadina Station",            "Queen Station"),
     ("eglinton-to-fin",    "Eglinton Station",           "Finch Station"),
-    ("dundas-to-kipling",  "Dundas Station",             "Kipling Station"),
+    ("dundas-to-kipling",  "Dundas West Station",        "Kipling Station"),
     ("king-to-kennedy",    "King Station",               "Kennedy Station"),
 ]
 

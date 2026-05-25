@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-23T00:00:00Z",
+  "commit": "fixture",
+  "model": { "version": "0.1.0", "method": "hand_fixture", "auroc": 0.72 },
+  "n_stops": 5,
+  "stops": [
+    {
+      "uid": "ttc-king-st-and-spadina-ave",
+      "id": "504-king-spadina",
+      "name": "King St West at Spadina Ave",
+      "sys": "TTC",
+      "lat": 43.6455,
+      "lon": -79.3958,
+      "score": 78,
+      "rank": 1,
+      "q": "Q1",
+      "f": { "lighting": 86, "crime": 68, "eyes_on_street": 92, "isolation": 20, "wait_exposure": 42, "sightline": 75, "disorder_311": 35, "lit_way_supplement": 88 }
+    },
+    {
+      "uid": "ttc-dundas-st-and-yonge-st",
+      "id": "505-dundas-yonge",
+      "name": "Dundas St East at Yonge St",
+      "sys": "TTC",
+      "lat": 43.6561,
+      "lon": -79.3803,
+      "score": 62,
+      "rank": 2,
+      "q": "Q2",
+      "f": { "lighting": 80, "crime": 45, "eyes_on_street": 88, "isolation": 25, "wait_exposure": 50, "sightline": 70, "disorder_311": 52, "lit_way_supplement": 74 }
+    },
+    {
+      "uid": "ttc-queen-st-and-bathurst-st",
+      "id": "501-queen-bathurst",
+      "name": "Queen St West at Bathurst St",
+      "sys": "TTC",
+      "lat": 43.6475,
+      "lon": -79.4027,
+      "score": 54,
+      "rank": 3,
+      "q": "Q2",
+      "f": { "lighting": 63, "crime": 50, "eyes_on_street": 72, "isolation": 38, "wait_exposure": 58, "sightline": 61, "disorder_311": 48, "lit_way_supplement": 60 }
+    },
+    {
+      "uid": "ttc-college-st-and-spadina-ave",
+      "id": "506-college-spadina",
+      "name": "College St at Spadina Ave",
+      "sys": "TTC",
+      "lat": 43.6577,
+      "lon": -79.3996,
+      "score": 39,
+      "rank": 4,
+      "q": "Q3",
+      "f": { "lighting": 48, "crime": 38, "eyes_on_street": 55, "isolation": 55, "wait_exposure": 66, "sightline": 50, "disorder_311": 61, "lit_way_supplement": 42 }
+    },
+    {
+      "uid": "ttc-sherbourne-st-and-queen-st-e",
+      "id": "501-queen-sherbourne",
+      "name": "Queen St East at Sherbourne St",
+      "sys": "TTC",
+      "lat": 43.6530,
+      "lon": -79.3691,
+      "score": 24,
+      "rank": 5,
+      "q": "Q4",
+      "f": { "lighting": 36, "crime": 22, "eyes_on_street": 35, "isolation": 72, "wait_exposure": 78, "sightline": 40, "disorder_311": 82, "lit_way_supplement": 28 }
+    }
+  ]
+}

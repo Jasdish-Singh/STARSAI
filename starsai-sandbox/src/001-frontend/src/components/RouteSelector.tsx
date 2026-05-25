@@ -3,12 +3,7 @@ import { useStore } from '../store/useStore';
 
 type DemoRoute = { id: string; label: string; file: string };
 
-export const DEMO_ROUTES: DemoRoute[] = [
-  { id: 'union-bloor',    label: 'Union → Bloor',           file: 'union-to-bloor.geojson' },
-  { id: 'spadina-queen',  label: 'Spadina → Queen',         file: 'spadina-to-queen.geojson' },
-  { id: 'eglinton-finch', label: 'Eglinton → Finch',        file: 'eglinton-to-fin.geojson' },
-  { id: 'king-kennedy',   label: 'King → Kennedy',          file: 'king-to-kennedy.geojson' }
-];
+export const DEMO_ROUTES: DemoRoute[] = []; // TODO: bake demo route GeoJSON files.
 
 export function RouteSelector() {
   const setRouteFeature = useStore((state) => state.setRouteFeature);
